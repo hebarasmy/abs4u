@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: #101114;
+  --background-soft: #1a1d23;
+  --foreground: #f6f7f9;
+  --muted: #a4a9b5;
+  --card: rgba(245, 246, 248, 0.1);
+  --card-border: rgba(255, 255, 255, 0.16);
+  --accent-start: #f43f5e;
+  --accent-end: #f87171;
+  --accent-solid: #f43f5e;
+  --accent-text: #fecdd3;
+  --accent-border: rgba(251, 113, 133, 0.35);
+  --accent-surface: rgba(244, 63, 94, 0.18);
+  --accent-glow-top: rgba(251, 113, 133, 0.18);
+  --accent-glow-bottom: rgba(239, 68, 68, 0.14);
+  --font-sans: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+}
+
+body[data-theme="purple"] {
+  --accent-start: #8b5cf6;
+  --accent-end: #c084fc;
+  --accent-solid: #8b5cf6;
+  --accent-text: #e9d5ff;
+  --accent-border: rgba(168, 85, 247, 0.35);
+  --accent-surface: rgba(139, 92, 246, 0.18);
+  --accent-glow-top: rgba(168, 85, 247, 0.18);
+  --accent-glow-bottom: rgba(192, 132, 252, 0.14);
+}
+
+body[data-theme="blue"] {
+  --accent-start: #2563eb;
+  --accent-end: #38bdf8;
+  --accent-solid: #2563eb;
+  --accent-text: #dbeafe;
+  --accent-border: rgba(59, 130, 246, 0.35);
+  --accent-surface: rgba(37, 99, 235, 0.18);
+  --accent-glow-top: rgba(37, 99, 235, 0.18);
+  --accent-glow-bottom: rgba(56, 189, 248, 0.14);
+}
+
+body[data-theme="green"] {
+  --accent-start: #16a34a;
+  --accent-end: #4ade80;
+  --accent-solid: #16a34a;
+  --accent-text: #dcfce7;
+  --accent-border: rgba(34, 197, 94, 0.35);
+  --accent-surface: rgba(22, 163, 74, 0.18);
+  --accent-glow-top: rgba(34, 197, 94, 0.18);
+  --accent-glow-bottom: rgba(74, 222, 128, 0.14);
+}
+
+body[data-theme="gray"] {
+  --accent-start: #6b7280;
+  --accent-end: #9ca3af;
+  --accent-solid: #6b7280;
+  --accent-text: #e5e7eb;
+  --accent-border: rgba(156, 163, 175, 0.28);
+  --accent-surface: rgba(107, 114, 128, 0.18);
+  --accent-glow-top: rgba(107, 114, 128, 0.16);
+  --accent-glow-bottom: rgba(156, 163, 175, 0.12);
+}
+
+body[data-theme="black"] {
+  --accent-start: #111827;
+  --accent-end: #374151;
+  --accent-solid: #111827;
+  --accent-text: #f3f4f6;
+  --accent-border: rgba(75, 85, 99, 0.28);
+  --accent-surface: rgba(17, 24, 39, 0.28);
+  --accent-glow-top: rgba(31, 41, 55, 0.16);
+  --accent-glow-bottom: rgba(55, 65, 81, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, var(--accent-glow-top), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.14), transparent 24%),
+    radial-gradient(circle at bottom, var(--accent-glow-bottom), transparent 24%),
+    linear-gradient(180deg, #0f1114 0%, #171a21 48%, #121317 100%);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+video {
+  display: block;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(216, 222, 232, 0.24);
+}
+
+.glass-panel {
+  background:
+    radial-gradient(circle at top, var(--accent-surface), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05)),
+    rgba(23, 24, 29, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 44px rgba(6, 8, 12, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.accent-text {
+  color: var(--accent-text);
+}
+
+.accent-border {
+  border-color: var(--accent-border);
+}
+
+.accent-bg {
+  background-color: var(--accent-solid);
+  color: #fff;
+}
+
+.accent-surface {
+  background-color: var(--accent-surface);
+}
+
+.accent-gradient {
+  background-image: linear-gradient(to right, var(--accent-start), var(--accent-end));
+  color: #fff;
+}
+
+.accent-gradient:hover {
+  filter: brightness(1.06);
+}
+
+.accent-gradient-vertical {
+  background-image: linear-gradient(to bottom, var(--accent-start), var(--accent-end));
+  color: #fff;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
