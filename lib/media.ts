@@ -5,6 +5,7 @@ import { join } from "path";
 
 import { MAX_IMAGE_SIZE_BYTES, MAX_VIDEO_DURATION_SECONDS, MAX_VIDEO_SIZE_BYTES } from "@/lib/constants";
 import { getDb, newId } from "@/lib/db";
+import { getUploadsRoot } from "@/lib/storage";
 import { slugify } from "@/lib/utils";
 
 type UploadBucket = "exercise-videos" | "log-videos" | "community-videos" | "workout-videos" | "workout-images" | "profile-images";
@@ -38,7 +39,7 @@ export async function uploadVideoAndCreateMediaAsset(params: {
   const safeName = slugify(file.name.replace(/\.[^.]+$/, "")) || "clip";
   const fileName = `${Date.now()}-${safeName}.${extension}`;
   const relativePath = `/uploads/${bucket}/${guestProfileId}/${fileName}`;
-  const diskDirectory = join(process.cwd(), "public", "uploads", bucket, guestProfileId);
+  const diskDirectory = join(getUploadsRoot(), bucket, guestProfileId);
   const diskPath = join(diskDirectory, fileName);
 
   await mkdir(diskDirectory, { recursive: true });
@@ -95,7 +96,7 @@ export async function uploadImageAndCreateMediaAsset(params: {
   const safeName = slugify(file.name.replace(/\.[^.]+$/, "")) || "image";
   const fileName = `${Date.now()}-${safeName}.${extension}`;
   const relativePath = `/uploads/${bucket}/${guestProfileId}/${fileName}`;
-  const diskDirectory = join(process.cwd(), "public", "uploads", bucket, guestProfileId);
+  const diskDirectory = join(getUploadsRoot(), bucket, guestProfileId);
   const diskPath = join(diskDirectory, fileName);
 
   await mkdir(diskDirectory, { recursive: true });

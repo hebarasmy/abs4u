@@ -3,6 +3,7 @@ node_modules
 out
 .env*.local
 .data
+storage
 public/uploads
 .DS_Store
 *.tsbuildinfo

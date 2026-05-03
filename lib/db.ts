@@ -1,10 +1,11 @@
 import Database from "better-sqlite3";
 import { mkdirSync } from "fs";
-import { dirname, join } from "path";
+import { dirname } from "path";
 import { pbkdf2Sync, randomBytes, randomUUID, timingSafeEqual, createHash } from "crypto";
 import { exerciseCatalog } from "@/data/exercise-catalog";
+import { getDatabasePath } from "@/lib/storage";
 
-const DB_PATH = process.env.ABS4U_DATABASE_PATH ?? join(process.cwd(), ".data", "abs4u.sqlite");
+const DB_PATH = getDatabasePath();
 const DEFAULT_EMAIL = "user1@abs4u.test";
 const DEFAULT_PASSWORD = "Abs4uDemo1!";
 
